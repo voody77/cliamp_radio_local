@@ -44,6 +44,27 @@ python3 -m venv .venv
 pip install -r requirements.txt
 ```
 
+Или через Makefile — он сам создаст `.venv` и поставит зависимости:
+
+```sh
+make            # список целей
+make install    # venv + зависимости
+make genres     # мировые жанры
+make russia     # российские жанры
+make all        # и то, и другое
+make check      # проверить потоки во всех плейлистах
+make prune      # удалить мёртвые потоки
+make compile    # быстрая проверка синтаксиса
+make clean
+```
+
+Переменные: `OUT_DIR`, `IFACE`, `PER_LIST`, `CANDIDATES`.
+
+```sh
+make all OUT_DIR=~/tmp/playlists PER_LIST=80 CANDIDATES=200
+make check IFACE=wlp3s0
+```
+
 ## Проверка без VPN
 
 Каждый поток проверяется реальным GET-запросом с этой машины:
@@ -129,6 +150,8 @@ cliamp_radio_local/
 │   ├── core.py              # API, проверка потоков, запись TOML
 │   ├── genres.py            # список жанров и ручные станции
 │   └── cliamp_channels.py   # встроенные каналы cliamp
+├── .github/workflows/       # CI и еженедельная сборка
+├── Makefile
 ├── requirements.txt
 └── README.md
 ```
@@ -136,3 +159,24 @@ cliamp_radio_local/
 Скрипты перезаписывают только те файлы, которые генерируют сами. Если вы
 правили плейлист вручную, изменения в нём потеряются при следующем запуске —
 держите ручные правки в отдельном файле или в `radios.toml`.
+
+## GitHub Actions
+
+| Workflow | Когда | Что делает |
+|----------|-------|-----------|
+| `CI` | push в `main`, pull request | `make compile` + `--help` всех скриптов |
+| `Refresh playlists` | по понедельникам в 03:00 UTC и вручную | собирает все плейлисты в `build/playlists`, валидирует TOML и выкладывает артефакт `cliamp-playlists` (14 дней) |
+
+Ручной запуск с параметрами:
+
+```sh
+gh workflow run refresh.yml -f per_list=50 -f candidates=120
+gh run list --workflow=refresh.yml
+gh run watch
+gh run download --name cliamp-playlists
+```
+
+Скачанные `.toml` достаточно положить в `~/.config/cliamp/playlists/`.
+В CI проверка идёт через `eth0` (default route раннера) — привязка к
+интерфейсу там работает так же, как локально.
+

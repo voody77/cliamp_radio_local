@@ -1,0 +1,66 @@
+name: Refresh playlists
+
+on:
+  schedule:
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+    inputs:
+      per_list:
+        description: Stations kept per playlist
+        default: "50"
+      candidates:
+        description: Candidates checked per playlist
+        default: "120"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: refresh-playlists
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Build genre playlists
+        run: |
+          python build_genres.py \
+            --out-dir build/playlists \
+            --per-list "${{ inputs.per_list || '50' }}" \
+            --candidates "${{ inputs.candidates || '120' }}"
+      - name: Build Russian genre playlists
+        run: |
+          python build_russia_genres.py \
+            --out-dir build/playlists \
+            --per-list "${{ inputs.per_list || '50' }}" \
+            --candidates "${{ inputs.candidates || '120' }}"
+      - name: Validate TOML
+        run: |
+          python - <<'PY'
+          import glob
+          import tomllib
+
+          files = sorted(glob.glob("build/playlists/*.toml"))
+          tracks = 0
+          for path in files:
+              with open(path, "rb") as handle:
+                  tracks += len(tomllib.load(handle).get("track", []))
+          print(f"{len(files)} playlists, {tracks} tracks")
+          if not files:
+              raise SystemExit("no playlists were generated")
+          PY
+      - name: Upload playlists
+        uses: actions/upload-artifact@v4
+        with:
+          name: cliamp-playlists
+          path: build/playlists/*.toml
+          retention-days: 14
