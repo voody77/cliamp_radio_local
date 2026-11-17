@@ -90,7 +90,7 @@
 
 - **Пресет:** `scripts`
 - **Фасеты:** `automation`, `integrations`
-- **Шаблон контекста:** версия 2.3.0
+- **Шаблон контекста:** версия 2.4.0
 - **Документация:** [`docs/README.md`](docs/README.md)
 - **Архитектура:** [`docs/architecture.md`](docs/architecture.md)
 
