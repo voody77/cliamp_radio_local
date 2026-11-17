@@ -1,0 +1,57 @@
+{
+  "template_version": "2.3.0",
+  "profile": "scripts",
+  "facets": [
+    "automation",
+    "integrations"
+  ],
+  "project": {
+    "name": "cliamp_radio_local",
+    "purpose": "Сборка локальных радио-плейлистов для cliamp"
+  },
+  "commands": {
+    "install": "make install",
+    "test": "make compile",
+    "lint": "make compile",
+    "build": "make all"
+  },
+  "required_docs": [
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "CLAUDE.md",
+    "CONTRIBUTING.md",
+    "README.md",
+    "docs/README.md",
+    "docs/architecture.md",
+    "docs/decisions/0001-local-playlists.md",
+    "docs/decisions/README.md",
+    "docs/glossary.md",
+    "docs/integrations.md",
+    "docs/known-issues.md",
+    "docs/ownership.md",
+    "docs/schedules.md",
+    "docs/scripts.md",
+    "docs/status.md",
+    "docs/testing.md",
+    "docs/troubleshooting.md"
+  ],
+  "local_guides": [],
+  "skills": [],
+  "skill_targets": [],
+  "kept_existing": [
+    "AGENTS.md",
+    "CONTRIBUTING.md",
+    "README.md",
+    "docs/architecture.md",
+    "docs/decisions/README.md",
+    "docs/glossary.md",
+    "docs/integrations.md",
+    "docs/known-issues.md",
+    "docs/ownership.md",
+    "docs/schedules.md",
+    "docs/scripts.md",
+    "docs/status.md",
+    "docs/testing.md",
+    "docs/troubleshooting.md"
+  ]
+}
