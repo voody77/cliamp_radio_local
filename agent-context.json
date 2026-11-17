@@ -1,5 +1,5 @@
 {
-  "template_version": "3.6.0",
+  "template_version": "3.7.0",
   "profile": "scripts",
   "facets": [
     "automation",
@@ -30,6 +30,7 @@
     "docs/known-issues.md",
     "docs/ownership.md",
     "docs/progress.md",
+    "docs/rules.md",
     "docs/schedules.md",
     "docs/scripts.md",
     "docs/status.md",
@@ -68,12 +69,12 @@
   "owner_role": "Владелец проекта",
   "default_branch": "main",
   "file_hashes": {
-    "AGENTS.md": "b9eda549420b4ae993ea05e6935b940fc03ebcf57366c0952675820970c2ab65",
+    "AGENTS.md": "9b93ee74b8bbdd308c1e13d69066214713e5e83aa28bc2d312fce2bcddff1195",
     "CHANGELOG.md": "be347273c397f45ec845e8bfdd66a887d16ee084ea6f62a0d0ee3013ff3e9553",
     "CLAUDE.md": "e670691b2ef992307dee3dc1ca1fdcec1a2efd0e9c6b1be93ba685ec27f259ed",
     "CONTRIBUTING.md": "e2d59d0cee8e70007298094ead4b58f448d63a7bd3a99605f02c96d86bdd45d9",
     "README.md": "17b628ebb89c13a12e89f6b718a60682a981dcb2d0e4ccaa77ecebf04ce1adc9",
-    "docs/README.md": "56a5ace5b935f86758b6e1becb6e9babd97b6ade91755eef23ab43c1bfe6006e",
+    "docs/README.md": "74acd4a813bef5f62325be6699b23322894f2907ad731294603b9fcbcfa26268",
     "docs/architecture.md": "0df4eb60a3536ffa84df89b9b6fe4f03856cc40786ef53f2e6e4be5088966ad3",
     "docs/decisions/README.md": "2b3aa5e4045fcea04a48f806f858f364eba11bd1206a151bd6431a6fb5e2acfc",
     "docs/glossary.md": "1f4083c46f948590a93be2a91d87ecb6bc669a1d884a1bcd2ea844112e46e5f9",
@@ -85,7 +86,7 @@
     "docs/scripts.md": "0ff006647e23427fb533a633b16c79f858658a787a6263e2660f25f45bb5a4e9",
     "docs/schedules.md": "37eb862347049f92f5ad92625b33fa02c9d144148352f05c21a81a81fc8307e5",
     "docs/integrations.md": "9773f8e53d3a8ff8e33f664e1ecce071ce905284d3cea8844f60829bc2f20f77",
-    "scripts/check_docs.py": "a6b5d5e9891a44fe80f63abff337f364a3d2d716b704e3b7deadc5318aec80cd",
+    "scripts/check_docs.py": "b6e5ba0bcd8a223b5a23eb8ab3dac55e0931e928eff12d27a3dcb8fd710e908d",
     "scripts/session_snapshot.py": "f8d3e1570f2fc2ce26234ea366ffa0e189f554cce60873ec41b8977f0051bec7",
     "docs/progress.md": "aeb5d517ca0b9dcf64ee52f8d885c1e63d87e2e42c30b68b3f36c37b8fdce1c7",
     ".agents/skills/code-review/SKILL.md": "6cba1a0f4589e08e7b6f9774b72fd1fd5f0be74034ac105408f422e36ae374e3",
@@ -94,10 +95,134 @@
     ".agents/skills/resume/SKILL.md": "b60e0f77c64d827de2ed8a8ff19a241e207cb95cacd65ccf30b869ea95aa2f06",
     ".agents/skills/tdd/SKILL.md": "90a9fc8eecb98bb0952907793b862f5c8a22cc421386621b8463fb1cf3418d72",
     ".agents/skills/subagents/SKILL.md": "37d00ce5f77ac7a9777a04b0b1daea7e58f0d1c649da4d198e5f4db0d4deff14",
-    ".agents/skills/code-simplification/SKILL.md": "d9959a630b8a4bf814a7f38015f97722b988b4dfea13d5c6b1872b6bd100ef04",
-    ".agents/skills/debugging/SKILL.md": "5156acb25452865fd25751920f288ee08e0dd093e48d9777b5466ad0f8aac15f",
-    ".agents/skills/performance-review/SKILL.md": "afefc5f30732116070cb6bea9e53280e1293dc24cba7744523e46624ecf14ba1",
-    ".agents/skills/security-review/SKILL.md": "04ee0937b93bc4d507462c58975eee521531f1178e7db9265e026687c3de5f3b"
+    "docs/rules.md": "cf06c191a443b16ae5c1de1568da615c5ba1bceed4d430290666a43c92c5e579"
   },
-  "hash_mode": "date-normalized-v1"
+  "hash_mode": "date-normalized-v1",
+  "template_sections": {
+    "AGENTS.md": [
+      "рабочие правила",
+      "что это",
+      "границы и запреты",
+      "правила фасетов",
+      "быстрый старт",
+      "проверки",
+      "маршрутизатор задач",
+      "инварианты",
+      "язык документации",
+      "известные ограничения",
+      "карта репозитория",
+      "определение готовности"
+    ],
+    "CHANGELOG.md": [
+      "[не выпущено]",
+      "добавлено"
+    ],
+    "CLAUDE.md": [],
+    "CONTRIBUTING.md": [
+      "окружение",
+      "ветки и коммиты",
+      "типовые изменения",
+      "обязательные проверки",
+      "документация",
+      "релиз",
+      "безопасность",
+      "запрос на слияние"
+    ],
+    "README.md": [
+      "с чего начать",
+      "быстрый старт",
+      "документация"
+    ],
+    "docs/README.md": [
+      "первые 30 минут",
+      "базовые документы",
+      "документы фасетов",
+      "история",
+      "как поддерживать карту"
+    ],
+    "docs/architecture.md": [
+      "назначение",
+      "компоненты",
+      "потоки",
+      "хранилища",
+      "интерфейсы",
+      "отказы и деградация",
+      "безопасность",
+      "решения",
+      "ориентиры"
+    ],
+    "docs/decisions/README.md": [
+      "формат",
+      "реестр"
+    ],
+    "docs/glossary.md": [
+      "предметная область",
+      "проект и технологии",
+      "правила"
+    ],
+    "docs/integrations.md": [
+      "контракты",
+      "поведение",
+      "безопасность"
+    ],
+    "docs/known-issues.md": [
+      "блокеры",
+      "что делать агенту"
+    ],
+    "docs/ownership.md": [
+      "зоны",
+      "окружения",
+      "доступы",
+      "эскалация"
+    ],
+    "docs/progress.md": [
+      "текущая цель",
+      "состояние",
+      "следующий шаг",
+      "известные проблемы",
+      "отброшенные подходы",
+      "правила ведения"
+    ],
+    "docs/rules.md": [
+      "качество и чистота",
+      "тесты как доказательство",
+      "план → утверждение → реализация → ревью → тесты",
+      "зрелые решения вместо самописа",
+      "не фантазировать",
+      "актуальный контекст",
+      "язык документации"
+    ],
+    "docs/schedules.md": [
+      "расписание",
+      "поведение"
+    ],
+    "docs/scripts.md": [
+      "точки входа",
+      "правила",
+      "проверка"
+    ],
+    "docs/status.md": [
+      "что работает",
+      "окружения",
+      "проверки на дату",
+      "открытые блокеры",
+      "что дальше"
+    ],
+    "docs/testing.md": [
+      "слои",
+      "правила",
+      "размеры",
+      "нестабильные тесты",
+      "что доказывают тесты",
+      "покрытие",
+      "что не покрыто",
+      "перед релизом"
+    ],
+    "docs/troubleshooting.md": [
+      "запуск и окружение",
+      "данные и контракты",
+      "производительность",
+      "тесты и сборка"
+    ]
+  }
 }

@@ -10,7 +10,8 @@ It reads ``agent-context.json``, verifies required documents, resolves
 relative Markdown links in managed documents (``required_docs`` and
 ``local_guides``), and checks the ``Обновлено: YYYY-MM-DD`` marker in
 ``docs/status.md``. ``--strict`` additionally fails on unfilled ``TODO``
-markers and a stale status file; use it as a release gate.
+markers, a stale status file, the ``AGENTS.md`` budget, and commands that
+point at missing files; use it as a release gate.
 """
 
 from __future__ import annotations
@@ -18,6 +19,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shlex
 import sys
 from datetime import date, datetime
 from pathlib import Path
@@ -26,7 +28,10 @@ from urllib.parse import unquote
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST = ROOT / "agent-context.json"
 STATUS = ROOT / "docs" / "status.md"
+AGENTS = ROOT / "AGENTS.md"
 STALE_DAYS = 180
+AGENTS_MAX_LINES = 400
+AGENTS_TARGET_LINES = 200
 
 LINK = re.compile(
     r"\[[^\]]*\]\(\s*(?:<([^>]+)>|((?:[^()\s]|\([^()]*\))+))"
@@ -34,6 +39,10 @@ LINK = re.compile(
 )
 DATE = re.compile(r"Обновлено:\s*\**\s*(\d{4}-\d{2}-\d{2})")
 TODO = re.compile(r"\bTODO\b")
+ENV_ASSIGNMENT = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*=")
+COMMANDS = ("install", "test", "lint", "build")
+INTERPRETERS = ("bash", "sh", "python", "python3", "node", "ruby", "perl")
+PATH_SUFFIXES = (".sh", ".py", ".js", ".mjs", ".cjs", ".ts", ".rb", ".pl")
 SKIP_PREFIXES = ("http://", "https://", "mailto:", "#", "/")
 
 
@@ -209,6 +218,73 @@ def check_todos(docs: list[str], *, strict: bool) -> list[str]:
     return failures
 
 
+def check_agents_budget(strict: bool) -> list[str]:
+    """Keep the always-loaded entry point small.
+
+    The hard cap catches pathological growth; the strict target is a nudge to
+    move details into documents that load on demand.
+    """
+    if not AGENTS.is_file():
+        return []
+    text = AGENTS.read_text(encoding="utf-8", errors="replace")
+    lines = len(text.splitlines())
+    if lines > AGENTS_MAX_LINES:
+        return [
+            f"AGENTS.md is {lines} lines (max {AGENTS_MAX_LINES}): "
+            "move details to docs/"
+        ]
+    if strict and lines > AGENTS_TARGET_LINES:
+        print(
+            f"note: AGENTS.md is {lines} lines "
+            f"(target <= {AGENTS_TARGET_LINES})",
+            file=sys.stderr,
+        )
+    return []
+
+
+def path_like(token: str) -> bool:
+    """Return True for tokens that look like a project file reference."""
+    if not token or token.startswith("-"):
+        return False
+    if token.startswith(("./", "scripts/", "bin/", "tools/")):
+        return True
+    return token.endswith(PATH_SUFFIXES)
+
+
+def check_commands(commands: object, *, strict: bool) -> list[str]:
+    """Check that manifest commands are filled and point at existing files."""
+    if not strict or not isinstance(commands, dict):
+        return []
+    failures: list[str] = []
+    for name in COMMANDS:
+        value = commands.get(name)
+        if not isinstance(value, str) or not value.strip():
+            failures.append(f"command '{name}' is empty")
+            continue
+        if TODO.search(value):
+            failures.append(f"command '{name}' still contains TODO")
+            continue
+        try:
+            tokens = shlex.split(value)
+        except ValueError:
+            failures.append(f"command '{name}' cannot be parsed")
+            continue
+        while tokens and ENV_ASSIGNMENT.match(tokens[0]):
+            tokens.pop(0)
+        candidates = tokens[:1]
+        if tokens and tokens[0] in INTERPRETERS:
+            candidates.append(tokens[1] if len(tokens) > 1 else "")
+        for token in candidates:
+            if not path_like(token):
+                continue
+            target = safe_path(token)
+            if target is None or not target.is_file():
+                failures.append(
+                    f"command '{name}' references missing file: {token}"
+                )
+    return failures
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Check the documentation set")
     parser.add_argument(
@@ -235,6 +311,10 @@ def main(argv: list[str] | None = None) -> int:
     failures.extend(check_links(markdown_files(managed)))
     failures.extend(check_status(strict=args.strict))
     failures.extend(check_todos(docs, strict=args.strict))
+    failures.extend(check_agents_budget(strict=args.strict))
+    failures.extend(
+        check_commands(manifest.get("commands"), strict=args.strict)
+    )
 
     if failures:
         for failure in failures:
