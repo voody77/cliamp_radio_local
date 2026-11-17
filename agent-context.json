@@ -1,5 +1,5 @@
 {
-  "template_version": "3.7.0",
+  "template_version": "3.8.2",
   "profile": "scripts",
   "facets": [
     "automation",
@@ -69,7 +69,7 @@
   "owner_role": "Владелец проекта",
   "default_branch": "main",
   "file_hashes": {
-    "AGENTS.md": "9b93ee74b8bbdd308c1e13d69066214713e5e83aa28bc2d312fce2bcddff1195",
+    "AGENTS.md": "8c2fde6abe7adcf3f4976fae98b5274e6ae8eed21be874d7a8032b4a15eb1791",
     "CHANGELOG.md": "be347273c397f45ec845e8bfdd66a887d16ee084ea6f62a0d0ee3013ff3e9553",
     "CLAUDE.md": "e670691b2ef992307dee3dc1ca1fdcec1a2efd0e9c6b1be93ba685ec27f259ed",
     "CONTRIBUTING.md": "e2d59d0cee8e70007298094ead4b58f448d63a7bd3a99605f02c96d86bdd45d9",
@@ -97,7 +97,7 @@
     ".agents/skills/subagents/SKILL.md": "37d00ce5f77ac7a9777a04b0b1daea7e58f0d1c649da4d198e5f4db0d4deff14",
     "docs/rules.md": "cf06c191a443b16ae5c1de1568da615c5ba1bceed4d430290666a43c92c5e579"
   },
-  "hash_mode": "date-normalized-v1",
+  "hash_mode": "date-version-normalized-v2",
   "template_sections": {
     "AGENTS.md": [
       "рабочие правила",
@@ -224,5 +224,6 @@
       "производительность",
       "тесты и сборка"
     ]
-  }
+  },
+  "core_docs": "full"
 }

@@ -26,7 +26,7 @@
 
 - **Пресет:** `scripts`
 - **Фасеты:** `automation`, `integrations`
-- **Шаблон контекста:** версия 3.6.0
+- **Шаблон контекста:** версия 3.8.2
 - **Документация:** [`docs/README.md`](docs/README.md)
 - **Архитектура:** [`docs/architecture.md`](docs/architecture.md)
 
