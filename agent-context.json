@@ -1,5 +1,5 @@
 {
-  "template_version": "2.4.1",
+  "template_version": "2.5.0",
   "profile": "scripts",
   "facets": [
     "automation",
@@ -42,6 +42,7 @@
     "AGENTS.md",
     "CONTRIBUTING.md",
     "README.md",
+    "docs/README.md",
     "docs/architecture.md",
     "docs/decisions/README.md",
     "docs/glossary.md",
@@ -58,23 +59,24 @@
   "owner_role": "Владелец проекта",
   "default_branch": "main",
   "file_hashes": {
-    "AGENTS.md": "fe1780abe70300faa178fcb21a45832ad0d853a4f9931c080e9f0eb4f40f7b21",
+    "AGENTS.md": "6152db61e9621200621a5c3311cb3afe625aeda3ceefece77af358ec4012da3a",
     "CHANGELOG.md": "be347273c397f45ec845e8bfdd66a887d16ee084ea6f62a0d0ee3013ff3e9553",
     "CLAUDE.md": "e670691b2ef992307dee3dc1ca1fdcec1a2efd0e9c6b1be93ba685ec27f259ed",
-    "CONTRIBUTING.md": "bacb3d8a135618ac1b90c531d42f4dcc24328cc06e22c10c7f10131c6acb619a",
+    "CONTRIBUTING.md": "e2d59d0cee8e70007298094ead4b58f448d63a7bd3a99605f02c96d86bdd45d9",
     "README.md": "17b628ebb89c13a12e89f6b718a60682a981dcb2d0e4ccaa77ecebf04ce1adc9",
-    "docs/README.md": "ce2f94216567ed687b161db30566aaa1ac41b05930630b3d3a417bfed57b1f2b",
-    "docs/architecture.md": "24791e5018c9e0f78a68aadab0626ffd919844b8ed8526a7b56cd61c8a1cbb05",
+    "docs/README.md": "8799deb768d8887c648c838a0483717ae4c1e8b05045219abe0cfd8b0129b8fe",
+    "docs/architecture.md": "0f50fa7cb67e168cc72b27451f3d1545f99a846d261a4d6aa48bb74e047334eb",
     "docs/decisions/README.md": "2b3aa5e4045fcea04a48f806f858f364eba11bd1206a151bd6431a6fb5e2acfc",
-    "docs/glossary.md": "762a86801b76613b83724b62e0a1da230ef4f57ef28d4fe21c02c9b813abdf24",
+    "docs/glossary.md": "1f4083c46f948590a93be2a91d87ecb6bc669a1d884a1bcd2ea844112e46e5f9",
     "docs/known-issues.md": "5aaad72b3e0a08a2554a56ee353655b12b21ded7f0a7a330bfd1efaba4ae53c2",
     "docs/ownership.md": "d4368fda51d699aa7494f032ebf0d169898b0d877ca3ab64e614c3ec5c64094a",
-    "docs/status.md": "06c292b05768eff053b425948aacfa78f62d250868660d0058b917df34ea4152",
+    "docs/status.md": "40c4345b6d068e15571673d8d2809c9067846c7ada9d23e8b9ea3d6190a4cecc",
     "docs/testing.md": "1fa349bf547e76d1a6e3dab60b68ad969f9549256e99230cb2bf617610f46eb4",
-    "docs/troubleshooting.md": "7887821dfce97d588b359e9406c8a0e3a1edbbd519acc6c7bb7b634cd8a6685a",
+    "docs/troubleshooting.md": "3f8fc706f541efbe40f9850d1b39eb4f05cb3fe458926dcc4e4db536e3edb4af",
     "docs/scripts.md": "0ff006647e23427fb533a633b16c79f858658a787a6263e2660f25f45bb5a4e9",
     "docs/schedules.md": "37eb862347049f92f5ad92625b33fa02c9d144148352f05c21a81a81fc8307e5",
     "docs/integrations.md": "9773f8e53d3a8ff8e33f664e1ecce071ce905284d3cea8844f60829bc2f20f77",
-    "scripts/check_docs.py": "8c4c930f494de317d886f731eafbef68b53cc23c41dc8ce280f336c02188793f"
-  }
+    "scripts/check_docs.py": "a6b5d5e9891a44fe80f63abff337f364a3d2d716b704e3b7deadc5318aec80cd"
+  },
+  "hash_mode": "date-normalized-v1"
 }

@@ -28,10 +28,42 @@ MANIFEST = ROOT / "agent-context.json"
 STATUS = ROOT / "docs" / "status.md"
 STALE_DAYS = 180
 
-LINK = re.compile(r"\[[^\]]*\]\(([^)]+)\)")
+LINK = re.compile(
+    r"\[[^\]]*\]\(\s*(?:<([^>]+)>|((?:[^()\s]|\([^()]*\))+))"
+    r"(?:\s+(?:\"[^\"]*\"|'[^']*'|\([^)]*\)))?\s*\)"
+)
 DATE = re.compile(r"Обновлено:\s*\**\s*(\d{4}-\d{2}-\d{2})")
 TODO = re.compile(r"\bTODO\b")
 SKIP_PREFIXES = ("http://", "https://", "mailto:", "#", "/")
+
+
+def strip_code(text: str) -> str:
+    """Remove fenced and inline code while keeping line numbers stable."""
+    text = re.sub(
+        r"```.*?```",
+        lambda match: "\n" * match.group(0).count("\n"),
+        text,
+        flags=re.DOTALL,
+    )
+    return re.sub(r"`[^`\n]*`", "", text)
+
+
+def safe_path(name: str) -> Path | None:
+    """Return a path inside the project or ``None`` for an unsafe name."""
+    if not name or any(ord(character) < 32 for character in name):
+        return None
+    relative = Path(name)
+    if relative.is_absolute() or ".." in relative.parts:
+        return None
+    try:
+        candidate = (ROOT / relative).resolve()
+    except (OSError, ValueError):
+        return None
+    try:
+        candidate.relative_to(ROOT)
+    except ValueError:
+        return None
+    return candidate
 
 
 def load_manifest() -> dict:
@@ -75,8 +107,8 @@ def label(path: Path) -> str:
 def markdown_files(names: list[str]) -> list[Path]:
     files: list[Path] = []
     for name in names:
-        path = ROOT / name
-        if path.is_file():
+        path = safe_path(name)
+        if path is not None and path.is_file():
             files.append(path)
     return files
 
@@ -96,15 +128,36 @@ def check_links(files: list[Path]) -> list[str]:
         if text is None:
             failures.append(f"{label(path)}: not UTF-8 or unreadable")
             continue
-        for number, line in enumerate(text.splitlines(), 1):
-            for target in LINK.findall(line):
-                target = target.strip()
+        for number, line in enumerate(strip_code(text).splitlines(), 1):
+            for match in LINK.finditer(line):
+                target = (match.group(1) or match.group(2) or "").strip()
                 if not target or target.startswith(SKIP_PREFIXES):
                     continue
-                target = unquote(target.split("#", 1)[0].strip())
+                target = unquote(
+                    target.split("#", 1)[0].split("?", 1)[0].strip()
+                )
                 if not target:
                     continue
-                if not (path.parent / target).resolve().exists():
+                if any(ord(character) < 32 for character in target):
+                    failures.append(
+                        f"{label(path)}:{number}: invalid link target"
+                    )
+                    continue
+                try:
+                    resolved = (path.parent / target).resolve()
+                except (OSError, ValueError):
+                    failures.append(
+                        f"{label(path)}:{number}: invalid link target"
+                    )
+                    continue
+                try:
+                    resolved.relative_to(ROOT)
+                except ValueError:
+                    failures.append(
+                        f"{label(path)}:{number}: {target} escapes the project"
+                    )
+                    continue
+                if not resolved.exists():
                     failures.append(f"{label(path)}:{number}: {target}")
     return failures
 
@@ -128,6 +181,8 @@ def check_status(*, strict: bool) -> list[str]:
         f"docs/status.md was updated {age} days ago ({updated}); "
         "refresh it before a release"
     )
+    if age < 0:
+        return [f"docs/status.md has a future date: {updated}"]
     if age > STALE_DAYS:
         if strict:
             failures.append(message)
@@ -141,14 +196,13 @@ def check_todos(docs: list[str], *, strict: bool) -> list[str]:
         return []
     failures: list[str] = []
     for name in docs:
-        path = ROOT / name
-        if not path.is_file():
+        path = safe_path(name)
+        if path is None or not path.is_file():
             continue
         text = read_markdown(path)
         if text is None:
             continue
-        text = re.sub(r"```.*?```", "", text, flags=re.DOTALL)
-        text = re.sub(r"`[^`\n]*`", "", text)
+        text = strip_code(text)
         count = len(TODO.findall(text))
         if count:
             failures.append(f"{name}: {count} TODO marker(s) left")
@@ -172,11 +226,12 @@ def main(argv: list[str] | None = None) -> int:
         print(f"FAIL {exc}", file=sys.stderr)
         return 1
 
-    failures = [
-        f"missing required file: {name}"
-        for name in docs
-        if not (ROOT / name).is_file()
-    ]
+    unsafe = sorted({name for name in managed if safe_path(name) is None})
+    failures = [f"unsafe managed path: {name}" for name in unsafe]
+    for name in docs:
+        path = safe_path(name)
+        if path is not None and not path.is_file():
+            failures.append(f"missing required file: {name}")
     failures.extend(check_links(markdown_files(managed)))
     failures.extend(check_status(strict=args.strict))
     failures.extend(check_todos(docs, strict=args.strict))
