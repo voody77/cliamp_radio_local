@@ -1,5 +1,5 @@
 {
-  "template_version": "2.4.0",
+  "template_version": "2.4.1",
   "profile": "scripts",
   "facets": [
     "automation",
@@ -58,7 +58,7 @@
   "owner_role": "Владелец проекта",
   "default_branch": "main",
   "file_hashes": {
-    "AGENTS.md": "3e765a276cd02b4d28bab1a41a181256522f1b526a9e0cac0c40896c08a4de2e",
+    "AGENTS.md": "fe1780abe70300faa178fcb21a45832ad0d853a4f9931c080e9f0eb4f40f7b21",
     "CHANGELOG.md": "be347273c397f45ec845e8bfdd66a887d16ee084ea6f62a0d0ee3013ff3e9553",
     "CLAUDE.md": "e670691b2ef992307dee3dc1ca1fdcec1a2efd0e9c6b1be93ba685ec27f259ed",
     "CONTRIBUTING.md": "bacb3d8a135618ac1b90c531d42f4dcc24328cc06e22c10c7f10131c6acb619a",
