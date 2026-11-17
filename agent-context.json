@@ -1,5 +1,5 @@
 {
-  "template_version": "3.1.0",
+  "template_version": "3.2.0",
   "profile": "scripts",
   "facets": [
     "automation",
@@ -39,9 +39,13 @@
   "local_guides": [],
   "skills": [
     "code-review",
+    "code-simplification",
+    "debugging",
     "domain-modeling",
     "handoff",
+    "performance-review",
     "resume",
+    "security-review",
     "subagents",
     "tdd"
   ],
@@ -68,7 +72,7 @@
   "owner_role": "Владелец проекта",
   "default_branch": "main",
   "file_hashes": {
-    "AGENTS.md": "ea9d54dc74ec00de195c593e375b0f6ce662643eff18b35392ae83276f218c00",
+    "AGENTS.md": "14ac1053b7a935d25ff9bfe490f07d4c176b4ae6a749adc2744434e716c26396",
     "CHANGELOG.md": "be347273c397f45ec845e8bfdd66a887d16ee084ea6f62a0d0ee3013ff3e9553",
     "CLAUDE.md": "e670691b2ef992307dee3dc1ca1fdcec1a2efd0e9c6b1be93ba685ec27f259ed",
     "CONTRIBUTING.md": "e2d59d0cee8e70007298094ead4b58f448d63a7bd3a99605f02c96d86bdd45d9",
@@ -93,7 +97,11 @@
     ".agents/skills/handoff/SKILL.md": "bea5c205d779b586b4059c73fb90a139fba5da68159f91670ed0b81782377600",
     ".agents/skills/resume/SKILL.md": "b60e0f77c64d827de2ed8a8ff19a241e207cb95cacd65ccf30b869ea95aa2f06",
     ".agents/skills/tdd/SKILL.md": "90a9fc8eecb98bb0952907793b862f5c8a22cc421386621b8463fb1cf3418d72",
-    ".agents/skills/subagents/SKILL.md": "37d00ce5f77ac7a9777a04b0b1daea7e58f0d1c649da4d198e5f4db0d4deff14"
+    ".agents/skills/subagents/SKILL.md": "37d00ce5f77ac7a9777a04b0b1daea7e58f0d1c649da4d198e5f4db0d4deff14",
+    ".agents/skills/code-simplification/SKILL.md": "d9959a630b8a4bf814a7f38015f97722b988b4dfea13d5c6b1872b6bd100ef04",
+    ".agents/skills/debugging/SKILL.md": "5156acb25452865fd25751920f288ee08e0dd093e48d9777b5466ad0f8aac15f",
+    ".agents/skills/performance-review/SKILL.md": "afefc5f30732116070cb6bea9e53280e1293dc24cba7744523e46624ecf14ba1",
+    ".agents/skills/security-review/SKILL.md": "04ee0937b93bc4d507462c58975eee521531f1178e7db9265e026687c3de5f3b"
   },
   "hash_mode": "date-normalized-v1"
 }
