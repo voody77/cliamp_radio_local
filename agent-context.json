@@ -1,5 +1,5 @@
 {
-  "template_version": "2.9.0",
+  "template_version": "3.0.0",
   "profile": "scripts",
   "facets": [
     "automation",
@@ -29,6 +29,7 @@
     "docs/integrations.md",
     "docs/known-issues.md",
     "docs/ownership.md",
+    "docs/progress.md",
     "docs/schedules.md",
     "docs/scripts.md",
     "docs/status.md",
@@ -36,7 +37,13 @@
     "docs/troubleshooting.md"
   ],
   "local_guides": [],
-  "skills": [],
+  "skills": [
+    "code-review",
+    "domain-modeling",
+    "handoff",
+    "resume",
+    "tdd"
+  ],
   "skill_targets": [],
   "kept_existing": [
     "AGENTS.md",
@@ -59,12 +66,12 @@
   "owner_role": "Владелец проекта",
   "default_branch": "main",
   "file_hashes": {
-    "AGENTS.md": "bcacb9434ad883512e5ea92dae66174983e9f529751726b1a259709270dee1e8",
+    "AGENTS.md": "a126183f267b80763a17782985bd94ffa736d75ba544afeb33a9df62c936560b",
     "CHANGELOG.md": "be347273c397f45ec845e8bfdd66a887d16ee084ea6f62a0d0ee3013ff3e9553",
     "CLAUDE.md": "e670691b2ef992307dee3dc1ca1fdcec1a2efd0e9c6b1be93ba685ec27f259ed",
     "CONTRIBUTING.md": "e2d59d0cee8e70007298094ead4b58f448d63a7bd3a99605f02c96d86bdd45d9",
     "README.md": "17b628ebb89c13a12e89f6b718a60682a981dcb2d0e4ccaa77ecebf04ce1adc9",
-    "docs/README.md": "8799deb768d8887c648c838a0483717ae4c1e8b05045219abe0cfd8b0129b8fe",
+    "docs/README.md": "56a5ace5b935f86758b6e1becb6e9babd97b6ade91755eef23ab43c1bfe6006e",
     "docs/architecture.md": "0f50fa7cb67e168cc72b27451f3d1545f99a846d261a4d6aa48bb74e047334eb",
     "docs/decisions/README.md": "2b3aa5e4045fcea04a48f806f858f364eba11bd1206a151bd6431a6fb5e2acfc",
     "docs/glossary.md": "1f4083c46f948590a93be2a91d87ecb6bc669a1d884a1bcd2ea844112e46e5f9",
@@ -76,7 +83,14 @@
     "docs/scripts.md": "0ff006647e23427fb533a633b16c79f858658a787a6263e2660f25f45bb5a4e9",
     "docs/schedules.md": "37eb862347049f92f5ad92625b33fa02c9d144148352f05c21a81a81fc8307e5",
     "docs/integrations.md": "9773f8e53d3a8ff8e33f664e1ecce071ce905284d3cea8844f60829bc2f20f77",
-    "scripts/check_docs.py": "a6b5d5e9891a44fe80f63abff337f364a3d2d716b704e3b7deadc5318aec80cd"
+    "scripts/check_docs.py": "a6b5d5e9891a44fe80f63abff337f364a3d2d716b704e3b7deadc5318aec80cd",
+    "scripts/session_snapshot.py": "f8d3e1570f2fc2ce26234ea366ffa0e189f554cce60873ec41b8977f0051bec7",
+    "docs/progress.md": "aeb5d517ca0b9dcf64ee52f8d885c1e63d87e2e42c30b68b3f36c37b8fdce1c7",
+    ".agents/skills/code-review/SKILL.md": "6cba1a0f4589e08e7b6f9774b72fd1fd5f0be74034ac105408f422e36ae374e3",
+    ".agents/skills/domain-modeling/SKILL.md": "600d527d079dcf2c3b8650d0baed1e0b173c374214031e53dc3c816972508d3a",
+    ".agents/skills/handoff/SKILL.md": "bea5c205d779b586b4059c73fb90a139fba5da68159f91670ed0b81782377600",
+    ".agents/skills/resume/SKILL.md": "b60e0f77c64d827de2ed8a8ff19a241e207cb95cacd65ccf30b869ea95aa2f06",
+    ".agents/skills/tdd/SKILL.md": "90a9fc8eecb98bb0952907793b862f5c8a22cc421386621b8463fb1cf3418d72"
   },
   "hash_mode": "date-normalized-v1"
 }
