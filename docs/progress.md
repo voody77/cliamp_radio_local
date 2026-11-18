@@ -6,7 +6,7 @@
 
 ## 2. Состояние
 
-- Контекст обновлён до `agent-context-kit 3.8.4`; `check_docs.py --strict` проходит.
+- Контекст обновлён до `agent-context-kit 4.0.0`; `check_docs.py --strict` проходит.
 - Remote `origin/main` синхронизирован.
 
 ## 3. Следующий шаг

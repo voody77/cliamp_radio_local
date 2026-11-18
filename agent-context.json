@@ -1,5 +1,5 @@
 {
-  "template_version": "3.8.4",
+  "template_version": "4.0.0",
   "profile": "scripts",
   "facets": [
     "automation",
@@ -64,7 +64,8 @@
     "docs/scripts.md",
     "docs/status.md",
     "docs/testing.md",
-    "docs/troubleshooting.md"
+    "docs/troubleshooting.md",
+    "scripts/session_snapshot.py"
   ],
   "runtime": "Python 3.11+, Makefile, curl, iproute2",
   "owner_role": "Владелец проекта",
@@ -88,7 +89,7 @@
     "docs/schedules.md": "37eb862347049f92f5ad92625b33fa02c9d144148352f05c21a81a81fc8307e5",
     "docs/integrations.md": "9773f8e53d3a8ff8e33f664e1ecce071ce905284d3cea8844f60829bc2f20f77",
     "scripts/check_docs.py": "b6e5ba0bcd8a223b5a23eb8ab3dac55e0931e928eff12d27a3dcb8fd710e908d",
-    "scripts/session_snapshot.py": "f8d3e1570f2fc2ce26234ea366ffa0e189f554cce60873ec41b8977f0051bec7",
+    "scripts/session_snapshot.py": "cf10e18b9fdafd98d0d22b657c0980df0dc1bc9bd204374a5e6f6ca6f0c2f0fb",
     "docs/progress.md": "aeb5d517ca0b9dcf64ee52f8d885c1e63d87e2e42c30b68b3f36c37b8fdce1c7",
     ".agents/skills/code-review/SKILL.md": "9d5ec270dd717d21f32d47ebed32f247322c20463515eab017f74bdaa6fb4200",
     ".agents/skills/domain-modeling/SKILL.md": "600d527d079dcf2c3b8650d0baed1e0b173c374214031e53dc3c816972508d3a",
@@ -226,5 +227,129 @@
       "тесты и сборка"
     ]
   },
-  "core_docs": "full"
+  "core_docs": "full",
+  "schema_version": 2,
+  "section_hashes": {
+    "AGENTS.md": {
+      "быстрый старт": "1eb84610b9e070d8cd8b8e952bf7de7d5693cc0b12b2d6b9d506d58a446f3cee",
+      "границы и запреты": "f63eee1315e87ab1cc0e922bd5f41803568e5901c299c199232202919476f59b",
+      "известные ограничения": "fb00fb428bae84be86a2ac7aafea555403e0a66b71e3b66632ebb2f1d45ea4d9",
+      "инварианты": "ddec525c109f40a55b9ad825415120db50786117623c3189e6099607dc596cfa",
+      "карта репозитория": "90e2f1514f509feef80941c5a2350da09119f3b9f27171d3bd246a3fb8c915b6",
+      "маршрутизатор задач": "fa34ab0a34b72e57bab9d7579558e014ac178b465f2fce8b71019fd44d95f4cd",
+      "определение готовности": "02dc4f0c911a2a6a556d11aacc88c0801391884cbe22804e5471f6e83f50c605",
+      "проверки": "7aac1544acf059fe024a9449d0391417038961ef5ece922d8dd06efbe422a48d",
+      "рабочие правила": "300a910876a2631e488bb2c00dfdcefcaff8e1b607edacf3dc72134d57d7e0f7",
+      "что это": "7a407b1f8b5de1efdc7c36271dcd28b500a3dc6c748cbd4bfdb1533d9650c85c",
+      "язык документации": "873577d0524c658f5253f7482a80cddfe93de80fec56956ae0ec95fbdcbf1dd6"
+    },
+    "CHANGELOG.md": {
+      "[не выпущено]": "f33ff004f1a531e487c9712c6924fd117f28da553557a90e7169b106558a9899"
+    },
+    "CLAUDE.md": {},
+    "CONTRIBUTING.md": {
+      "безопасность": "e6652a1924c5882b23e2844d2b9382297717e87d26701bac20b2fe863514741d",
+      "ветки и коммиты": "cd1e27e586d4da40934f3a7888dfed7453336486a6bdd87cf7d83f9f224500cf",
+      "документация": "08862042390cdd98cb48d271b6a81442ddd456d43a2e05bd6b4fc55406e018e3",
+      "запрос на слияние": "8e75b7f7093c7bd78b685c7c0e92d924526b6b45492cc217be31124444be49db",
+      "обязательные проверки": "3ebc4bb0f27e4c669fb7ec9af4dc8bdd5b481e35c70acf5837c1c778a96eabde",
+      "окружение": "fdb2181483870ab5108ab98c1a21b6cb34bba81399df5c94146397154c7cb66f",
+      "релиз": "89a5d694d65fbd05e19b0dcc1574ff91a4b988306ed6647b1e294a20ea99864a",
+      "типовые изменения": "44d5b26e7bb3c7e71ede1dae851bcd1329680a52c9990c7f3ff755f4f462f043"
+    },
+    "README.md": {
+      "быстрый старт": "5f4469e1210263e053c9ee6687b375782df6505d745623547fbd3e7eedb6ceab",
+      "документация": "00d1b08b23fb1ddbb4f550281f5078e612b32e8661504d4a12098df029bfd1b1",
+      "с чего начать": "3480d54d4d4ec47752684005a3039bfeda8b79ef44f8a07d6c74f867629dd0e8"
+    },
+    "docs/README.md": {
+      "базовые документы": "46135519df75c1b12ebe9724b2c37b9b2bedc8733902d5786eddd6db4288ff22",
+      "документы фасетов": "52bf1d6a2ec085e58ad8962094976bc5cfb250200431311ac0e5063d03c1f037",
+      "история": "514ac906d412ede29b8cd08b219d926c376d80d99cf80da067bc1c41e941d27b",
+      "как поддерживать карту": "ccb3d4ed5aa950d025ee91570899c3918f0dc2d949c8b67a328e5786c7ebd056",
+      "первые 30 минут": "e0104dc50b29b7ce1efd71a0cfca87f756d61ce89677f622ffc58e8ce8e68a2a"
+    },
+    "docs/architecture.md": {
+      "безопасность": "79617cb73cc81a1fdbe226f84f8d6579cdc5f54d7efe071f946d1800194ec585",
+      "интерфейсы": "6440db7e53f09fc80d4474226c2509230441f47713b32337a74b414cbf8f4860",
+      "компоненты": "dea0c67dc87e54179d57616ecc39db275fbb06f5ce6c5632f645b093c86b6dcd",
+      "назначение": "f6d10b0982c9ea30a256151db166d405dd5ebab40b43c9ab3198723b85830d54",
+      "ориентиры": "ded08b1ec08c529a4cf8a72a0b921db2199327f2dbb2258f1e4594888d7f1cc5",
+      "отказы и деградация": "126eef8707827d63a5001338ad1069034834c066d9d383f79ca53120641e0dbf",
+      "потоки": "b2d6aaf868f16ebdd06a2c301ab684ff261995a77ad2493a9c6821e8b4526597",
+      "решения": "ab2941ce18af786d89254292099aad3a3cc7f2c314ce9784d69e449bccb553bf",
+      "хранилища": "c8f8989b44aa0a05d8e677cb5e0b10a371599936b819f025122c77ea2ec5186a"
+    },
+    "docs/decisions/README.md": {
+      "реестр": "15455cbd12ac3d378edfb42100062922749f735d408ca19bf053da9158b954be",
+      "формат": "7cd33be31eb94ae8a6ff7a4896b45a17ef8f8ecbf544015d787bc81c3af89160"
+    },
+    "docs/glossary.md": {
+      "правила": "48e1efd25052393eebe052a976d96f00903b7d00efc025f9549ebc6dfa892c2a",
+      "предметная область": "a5e6dda2b644718621b6aacf3095628ed6e1f266e7fe10e26fea1d7fcd8bc48c",
+      "проект и технологии": "610b60d7999acfecf82cbbe0f179228c7ebd2d366c94cb85c95e1f4529984c02"
+    },
+    "docs/integrations.md": {
+      "безопасность": "a248844da2bea7d4440af53bd228a5313d6fee8e7f49709ea8d1c8fdc4ceac79",
+      "контракты": "9dccd75c4b7560ef708158d04dfdad58a9faf4df9fb97c1a2d5fa1c000e4cd72",
+      "поведение": "f41edef4f8ae1bdbe54b24f37d0227f4a55ae83a215b5a0f23925c9b3ee36a35"
+    },
+    "docs/known-issues.md": {
+      "блокеры": "4cb85a8d6d1b94d5176378dffa8e6a7d11d1f0cb09d9e0dd3ebd79aa3d7125ab",
+      "что делать агенту": "a4f77c4c2d8cd797a4f95067f30c4fd34820efc0de56c0acc92dae463efdce86"
+    },
+    "docs/ownership.md": {
+      "доступы": "016f22ea8e66f12edd7b1c5384059454135c498120dad1a567f7c258a0b9fbef",
+      "зоны": "0a2495e849abdb4e8a87ead5033e16d88bd079038ac1805d041f3f0509465de8",
+      "окружения": "bc96a9e2e8ae3a36ff6b03c1f9160cb4b6a0c4d773292a3b0fa17f11cd7ece11",
+      "эскалация": "3093334647523d95de9ee7bff80dc79ef685bf036df85b381325fbdaf3a101c1"
+    },
+    "docs/progress.md": {
+      "известные проблемы": "477e46e151982177e6d2e8aae55b2ea3d54c4fe9c025501088227d432a5bbf5b",
+      "отброшенные подходы": "24da086f1e2147d082e1b92420dd5ccfc95da7cd995f3a98cd1b4a31644c9064",
+      "правила ведения": "68ca7316851d2ebd294f18dccc000d7237097674254b5fcb62392e5fb2c1ec8a",
+      "следующий шаг": "3259016be478135a74f5641fc59d9c3e04be435ad8ccbea59a96fd1385e57192",
+      "состояние": "9e3e3584cdbbb08c4e45b5e77453253662976cc3dc627aecbf62f1880ed069c5",
+      "текущая цель": "9b887990f74546e2a368586c4061588bee13a2b81f8a1ff21377f99c2b6285ce"
+    },
+    "docs/rules.md": {
+      "актуальный контекст": "5a9a4adc64159246db5df0eb7f93b80b06da1328db3626201c932746efc0f98f",
+      "зрелые решения вместо самописа": "5d2baae986e780ec65142839681b8b4234de75f1e90b9ee072a9539546791384",
+      "качество и чистота": "a165c8fd059ea22e341fe53da8ec70f06621fa661275f5c28952b97bf8104356",
+      "не фантазировать": "64285f992f801fcab8b7e5b7f3a88f6b0b9a577ea5e5619773c50cc884efb489",
+      "план → утверждение → реализация → ревью → тесты": "6944100576c54ce202e874d0916cc29cc6a14da6b19364fc1fc618f5038a0914",
+      "тесты как доказательство": "cfac11a93b1620ff2a4de82657cf312e3ebae33bdfddf49f7c06d35271119132",
+      "язык документации": "07b029792583441373e8cb252200b42de3d628588cdc91a0d902bb1a4fe9d002"
+    },
+    "docs/schedules.md": {
+      "поведение": "a3eff86c3d0a945c9e1d9cc4cd2dad7b95ebc537dcaa0fa38c67d15737609cca",
+      "расписание": "d0ff90e3674bcd4521c0ba9180d5809fb2d8b16e2992c1d8117ce4cc5014e143"
+    },
+    "docs/scripts.md": {
+      "правила": "4022188aa00e163a25e7e552a03eb07726d137c9d94d2ef1e216793f6d910ffe",
+      "проверка": "0c788a4e4cdd3d7768f26776a670cb5ebee52dc229f2884d368100eee5178a67",
+      "точки входа": "8e691dd6e12cc2cbb8fc16e01eb75dd7372fc43494030de074838fe8c4d85d71"
+    },
+    "docs/status.md": {
+      "окружения": "9031e1b84f554872bc167972d5850baecaa0f2370fc9afb7c7cc622266bcee9c",
+      "открытые блокеры": "29e30db3cf6dc6cf695e71c2e9614ecef4564f9c79f0826b614c217a52150979",
+      "проверки на дату": "ffe528a8070b67c0497f6382f74d1629d303c92aebec05e76ecc7b74018f7674",
+      "что дальше": "675ef291b925e7b27c118cb364c0f90f3ce26d12683dde8a1305bed27e534fea",
+      "что работает": "47532631f44b493b39b25363f728da63dd18f97e61db77bd83704371dc549764"
+    },
+    "docs/testing.md": {
+      "перед релизом": "69eb0b569e6d4ab18e260218698658253e4e36c3054c0daf0d8c842056d311a0",
+      "покрытие": "1abba5295f7a99685a5f231d97c9eac20f0a2b4db0a51012bffec8048bddddc8",
+      "правила": "514ae5841ce9ed119f5e5ebcbad378054110eb3b9c5cd3a30f2eff7979092930",
+      "слои": "e286529234e214e27b7af544d9e15c30ce2510bc4afc6ce7723b5548b9d85be1",
+      "что доказывают тесты": "8558ba2bf50b91b8f3eb7c064f50d1805c097fdcef5f7117b2b57097b6a87e01",
+      "что не покрыто": "493f34927ace1632e12c1dafae5953953c1b95d11ba127866ddb58c200be4a97"
+    },
+    "docs/troubleshooting.md": {
+      "данные и контракты": "c2e17287a28209f345a989143498607fa95b1bd71dba118beccc17f4b1acd0bd",
+      "запуск и окружение": "a3a1f7298ce5db292dc22583aded8b35ffc80a2c0a92611f1ec56f2c5a73a8a5",
+      "производительность": "d5421390485acc710184be4dc14acf04074bd8b9f1121c944b078009a9dd94eb",
+      "тесты и сборка": "21fbd0b5aaaf30d13d63530edc4e605c12053aa69805e094151bb6ae98e9a0c2"
+    }
+  }
 }
