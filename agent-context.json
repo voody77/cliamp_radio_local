@@ -1,5 +1,5 @@
 {
-  "template_version": "3.8.2",
+  "template_version": "3.8.4",
   "profile": "scripts",
   "facets": [
     "automation",
@@ -59,6 +59,7 @@
     "docs/known-issues.md",
     "docs/ownership.md",
     "docs/progress.md",
+    "docs/rules.md",
     "docs/schedules.md",
     "docs/scripts.md",
     "docs/status.md",
@@ -69,7 +70,7 @@
   "owner_role": "Владелец проекта",
   "default_branch": "main",
   "file_hashes": {
-    "AGENTS.md": "8c2fde6abe7adcf3f4976fae98b5274e6ae8eed21be874d7a8032b4a15eb1791",
+    "AGENTS.md": "ddff1d49e182bcbc0e1978fb37e5aed4ab6a4b77473deb0ec9fd975890c950a4",
     "CHANGELOG.md": "be347273c397f45ec845e8bfdd66a887d16ee084ea6f62a0d0ee3013ff3e9553",
     "CLAUDE.md": "e670691b2ef992307dee3dc1ca1fdcec1a2efd0e9c6b1be93ba685ec27f259ed",
     "CONTRIBUTING.md": "e2d59d0cee8e70007298094ead4b58f448d63a7bd3a99605f02c96d86bdd45d9",
@@ -89,13 +90,13 @@
     "scripts/check_docs.py": "b6e5ba0bcd8a223b5a23eb8ab3dac55e0931e928eff12d27a3dcb8fd710e908d",
     "scripts/session_snapshot.py": "f8d3e1570f2fc2ce26234ea366ffa0e189f554cce60873ec41b8977f0051bec7",
     "docs/progress.md": "aeb5d517ca0b9dcf64ee52f8d885c1e63d87e2e42c30b68b3f36c37b8fdce1c7",
-    ".agents/skills/code-review/SKILL.md": "6cba1a0f4589e08e7b6f9774b72fd1fd5f0be74034ac105408f422e36ae374e3",
+    ".agents/skills/code-review/SKILL.md": "9d5ec270dd717d21f32d47ebed32f247322c20463515eab017f74bdaa6fb4200",
     ".agents/skills/domain-modeling/SKILL.md": "600d527d079dcf2c3b8650d0baed1e0b173c374214031e53dc3c816972508d3a",
     ".agents/skills/handoff/SKILL.md": "bea5c205d779b586b4059c73fb90a139fba5da68159f91670ed0b81782377600",
     ".agents/skills/resume/SKILL.md": "b60e0f77c64d827de2ed8a8ff19a241e207cb95cacd65ccf30b869ea95aa2f06",
     ".agents/skills/tdd/SKILL.md": "90a9fc8eecb98bb0952907793b862f5c8a22cc421386621b8463fb1cf3418d72",
     ".agents/skills/subagents/SKILL.md": "37d00ce5f77ac7a9777a04b0b1daea7e58f0d1c649da4d198e5f4db0d4deff14",
-    "docs/rules.md": "cf06c191a443b16ae5c1de1568da615c5ba1bceed4d430290666a43c92c5e579"
+    "docs/rules.md": "7d28128e36f6f9b6c2be7a0590a0d2cd649d8ca348335b84759717630f3ed889"
   },
   "hash_mode": "date-version-normalized-v2",
   "template_sections": {
